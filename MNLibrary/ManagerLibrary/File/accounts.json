@@ -1,0 +1,21 @@
+[
+  {
+    "UserName": "testdata1",
+    "Email": "testdata1@example.com",
+    "Password": "123",
+    "RoleId": 2
+  },
+  {
+
+    "UserName": "testdata2",
+    "Email": "testdata2@example.com",
+    "Password": "123",
+    "RoleId": 2
+  },
+  {
+    "UserName": "testdata3",
+    "Email": "testdata3@example.com",
+    "Password": "123",
+    "RoleId": 2
+  }
+]

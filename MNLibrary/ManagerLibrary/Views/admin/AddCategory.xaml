@@ -1,0 +1,35 @@
+﻿<Window x:Class="ManagerLibrary.Views.admin.AddCategory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManagerLibrary.Views.admin"
+        mc:Ignorable="d"
+        Title="AddCategory" Height="250" Width="400" Background="#FF2C3E50">
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Title -->
+        <TextBlock Text="Add New Category" FontSize="24" Foreground="White" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <!-- Category Name -->
+        <TextBlock Text="Category Name" Foreground="White" Grid.Row="1" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtCategoryName" Width="250" Height="30" Margin="0,5" FontSize="14" BorderThickness="0" Background="#FF34495E" Foreground="White" Grid.Row="1" Grid.Column="1" Text="{Binding CategoryName, Mode=TwoWay}" />
+
+        <!-- Buttons -->
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,10">
+            <Button Content="Cancel" Click="CancelButton_Click" Width="80" Height="30" Margin="10" Background="#FF7F8C8D" Foreground="White" FontSize="12" FontWeight="Bold"/>
+            <Button Content="Add" Click="AddButton_Click" Width="80" Height="30" Margin="10" Background="#FF2980B9" Foreground="White" FontSize="12" FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Window>

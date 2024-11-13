@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\admin\AddAuthor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\admin\AddCategory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\admin\BorrowReManagement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\admin\UpdateBookDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\admin\UpdateStatusDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\client\ChangePass.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\client\ListBook.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\client\ProfileWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\client\RegisterBorrow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\client\RegistrationHistory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\admin\AccountManagement.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\admin\AddAccountDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\admin\AddAuthor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\admin\AddBookDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\admin\AddCategory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\admin\BookManagement.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\admin\BorrowReManagement.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\admin\UpdateAccountDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\admin\UpdateBookDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\admin\UpdateStatusDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\client\ChangePass.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\client\ListBook.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\client\ProfileWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\client\RegisterBorrow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\client\RegistrationHistory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Home.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Register.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

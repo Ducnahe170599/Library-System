@@ -1,0 +1,97 @@
+﻿<Window x:Class="ManagerLibrary.Views.admin.BorrowReManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManagerLibrary.Views.client"
+        mc:Ignorable="d"
+        Title="RegistrationHistory" Height="600" Width="1200" Background="#FF2C3E50"
+        WindowStartupLocation="CenterScreen"
+        Closing="Window_Closing">
+  
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid Grid.Row="0" VerticalAlignment="Center" Background="#FF34495E" Height="60" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto" MinWidth="887"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.ColumnSpan="2" Height="60" Margin="0,0,395,0">
+                <Image Source="C:\Users\nguye\OneDrive\Desktop\MNLibrary\ManagerLibrary\Images\logo_MNLibrary.png" Width="60" Height="60" Margin="0,0,0,6" />
+                <TextBlock Text="ChongNovel" VerticalAlignment="Center" Foreground="White" FontSize="24" FontFamily="VnTimes" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,169,0" Height="42">
+                <Label Content="Filter by status:" VerticalAlignment="Center" Foreground="White"/>
+                <ComboBox x:Name="cbStatus" Width="140" SelectionChanged="cbStatus_SelectionChanged" Height="24">
+                    <ComboBoxItem Content="Tất cả" Tag="All" />
+                    <ComboBoxItem Content="Đã gửi" Tag="Submitted" />
+                    <ComboBoxItem Content="Đã xác nhận" Tag="Confirmed" />
+                    <ComboBoxItem Content="Đang mượn" Tag="Borrowed" />
+                    <ComboBoxItem Content="Đã trả" Tag="Returned" />
+                    <ComboBoxItem Content="Đã từ chối" Tag="Reject" />
+                    <ComboBoxItem Content="Quá hạn" Tag="Overdue" />
+                </ComboBox>
+                <Label Content="Search:" VerticalAlignment="Center" Foreground="White"/>
+                <TextBox x:Name="txtSearch" Width="300" ToolTip="Search by Title, ISBN" TextChanged="txtSearch_TextChanged" BorderThickness="0" Height="24"/>
+            </StackPanel>
+            <Button Click="BtnHome_Click" Background="Transparent" BorderBrush="Transparent" Margin="815,10,0,10" HorizontalAlignment="Left" Width="72" Grid.Column="1">
+                <Image Source="C:\Users\nguye\OneDrive\Desktop\MNLibrary\ManagerLibrary\Images\home.png" Width="46" Height="40" RenderTransformOrigin="0.545,0.5"/>
+            </Button>
+        </Grid>
+
+        <!-- Registration History -->
+        <ListView x:Name="lvData" Grid.Row="2" Margin="-10,0,10,0" BorderBrush="#FF34495E" BorderThickness="1" Height="410" VerticalAlignment="Center">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Mã độc giả" DisplayMemberBinding="{Binding ReaderCode}" Width="200"/>
+                    <GridViewColumn Header="ISBN" DisplayMemberBinding="{Binding Isbn}" Width="200"/>
+                    <GridViewColumn Header="Hình ảnh" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Image}" Width="60" Height="60"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding Quantity}" Width="70"/>
+                    <GridViewColumn Header="Ngày mượn" DisplayMemberBinding="{Binding BorrowDate}" Width="100"/>
+                    <GridViewColumn Header="Đến hạn" DisplayMemberBinding="{Binding DueDate}" Width="100"/>
+                    <GridViewColumn Header="Ngày trả" DisplayMemberBinding="{Binding ReturnDate}" Width="100"/>
+                    <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding StatusDisplay}" Width="140" />
+                    <GridViewColumn Header="Cập nhật trạng thái" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnUpdate" Content="Cập nhật" Click="UpdateStatus_Click" Tag="{Binding BorrowId}">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="IsEnabled" Value="True"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Enable}" Value="false">
+                                                    <Setter Property="IsEnabled" Value="False"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!-- Add Button -->
+        <Grid Grid.Row="1" VerticalAlignment="Center" Height="50" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </Grid>
+</Window>

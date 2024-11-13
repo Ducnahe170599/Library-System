@@ -1,0 +1,35 @@
+﻿<Window x:Class="ManagerLibrary.Views.client.ChangePass"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManagerLibrary.Views.client"
+        mc:Ignorable="d"
+        Title="Change Password" Height="320" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF2C3E50">
+        <StackPanel Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Change Password" FontSize="24" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Old Password:" Foreground="White" Width="120"/>
+                <PasswordBox x:Name="OldPasswordBox" Width="200" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="New Password:" Foreground="White" Width="120"/>
+                <PasswordBox x:Name="NewPasswordBox" Width="200" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Confirm Password:" Foreground="White" Width="120"/>
+                <PasswordBox x:Name="ConfirmPasswordBox" Width="200" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+                <Button Content="Save" Width="100" Click="BtnSave_Click" Background="#FF2980B9" Foreground="White" FontWeight="Bold" Margin="10"/>
+                <Button Content="Close" Width="100" Click="BtnClose_Click" Background="#FF2980B9" Foreground="White" FontWeight="Bold" Margin="10"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

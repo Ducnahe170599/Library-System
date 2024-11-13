@@ -1,0 +1,76 @@
+﻿<Window x:Class="ManagerLibrary.Views.admin.BookManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManagerLibrary.Views.admin"
+        mc:Ignorable="d"
+        Title="Book Management" Height="650" Width="1300" 
+        WindowStartupLocation="CenterScreen"
+        VerticalAlignment="Center"
+        >
+    <Grid Background="#FF2C3E50">
+        <StackPanel>
+            <!-- Tìm kiếm sách -->
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Filter by Category:" VerticalAlignment="Center" Foreground="White"/>
+                    <ComboBox x:Name="cbCategory" Width="168" Margin="10" DisplayMemberPath="CategoryName" SelectedValuePath="CategoryId" SelectionChanged="cbCategory_SelectionChanged" Height="26" >
+                    </ComboBox>
+                    <Label Content="Filter by Status:" VerticalAlignment="Center" Foreground="White" />
+                    <ComboBox x:Name="cbStatus" Width="113" SelectionChanged="cbStatus_SelectionChanged" Height="26">
+                        <ComboBoxItem Content="Available" Tag="Available" />
+                        <ComboBoxItem Content="Unavailable" Tag="Unavailable" />
+                    </ComboBox>
+                    <Label Content="Search:" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBox x:Name="txtSearch" Width="300" ToolTip="Search by Book ID, Title, Author, or Category" TextChanged="TxtSearch_TextChanged" BorderThickness="0" Height="28"/>
+                
+                </StackPanel>
+                <Button Grid.Column="1" Click="BtnHome_Click" Background="Transparent" BorderBrush="Transparent" Margin="10">
+                    <Image Source="C:\Users\nguye\OneDrive\Desktop\MNLibrary\ManagerLibrary\Images\home.png" Width="44" Height="40" RenderTransformOrigin="0.545,0.5"/>
+                </Button>
+            </Grid>
+
+            <!-- Nút thêm sách -->
+            <Button Content="Add Book" Width="100" Margin="10" Height="30" Foreground="White" Click="BtnAddBook_Click" Background="#FF2980B9" FontWeight="Bold"/>
+
+            <!-- Hiển thị số lượng sách -->
+            <TextBlock x:Name="txtBookCount" Margin="10" Foreground="White" FontSize="14"/>
+
+            <!-- ListView hiển thị danh sách sách -->
+            <ListView x:Name="listViewBooks" Height="368" Margin="10"  Background="White" Foreground="black">
+                
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Book ID" DisplayMemberBinding="{Binding BookId}" Width="60"/>
+                        <GridViewColumn Header="ISBN" DisplayMemberBinding="{Binding Isbn}" Width="150"/>
+                        <GridViewColumn Header="Image" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding ImagePath}" Width="60" Height="60"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="280"/>
+                        <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="80"/>
+                        <GridViewColumn Header="Author" DisplayMemberBinding="{Binding AuthorName}" Width="150"/>
+                        <GridViewColumn Header="Category" DisplayMemberBinding="{Binding CategoryName}" Width="100"/>
+                        <GridViewColumn Header="Create Date" DisplayMemberBinding="{Binding CreateDate}" Width="150"/>
+                        <GridViewColumn Header="Update Date" DisplayMemberBinding="{Binding UpdateDate}" Width="150"/>
+                        <GridViewColumn Header="Status" DisplayMemberBinding="{Binding DisplayStatus}" Width="100"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <!-- Nút cập nhật và xóa sách -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Update" Margin="10" Width="100" Height="30" Click="BtnUpdateBook_Click" Background="#FF2980B9" Foreground="White" FontWeight="Bold"/>
+                <Button Content="Delete" Margin="10"  Width="100" Height="30" Click="BtnDeleteBook_Click" Background="#FF2980B9" Foreground="White" FontWeight="Bold"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

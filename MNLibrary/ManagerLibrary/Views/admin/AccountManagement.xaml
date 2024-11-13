@@ -1,0 +1,48 @@
+﻿<Window x:Class="ManagerLibrary.Views.admin.AccountManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManagerLibrary.Views.admin"
+        mc:Ignorable="d"
+        Title="AccountManagement" Height="700" Width="800"   
+        WindowStartupLocation="CenterScreen"
+        VerticalAlignment="Center">
+    <Grid Background="#FF2C3E50">
+        <StackPanel Margin="0,0,0,-12">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Search:" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBox x:Name="txtSearch" Width="300" ToolTip="Search by UserId, UserName or Email" TextChanged="TxtSearch_TextChanged" BorderThickness="0" Height="27"/>
+                </StackPanel>
+                <Button Grid.Column="1" Click="BtnHome_Click" Background="Transparent" BorderBrush="Transparent" Margin="10">
+                    <Image Source="C:\Users\nguye\OneDrive\Desktop\MNLibrary\ManagerLibrary\Images\home.png" Width="44" Height="40" RenderTransformOrigin="0.545,0.5"/>
+                </Button>
+            </Grid>
+
+            <Button Content="Add Account" Width="100" Height="30" Margin="10" Foreground="White" Click="BtnAddAccount_Click" Background="#FF2980B9" FontWeight="Bold"/>
+            <TextBlock x:Name="txtAccountCount" Margin="10" Foreground="White" FontSize="14"/>
+
+            <ListView x:Name="listViewAccounts" Height="421" Margin="10" Background="White" Foreground="black" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="User ID" DisplayMemberBinding="{Binding UserId}" Width="150"/>
+                        <GridViewColumn Header="User Name" DisplayMemberBinding="{Binding UserName}" Width="200"/>
+                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="250"/>
+                        <GridViewColumn Header="Role Name" DisplayMemberBinding="{Binding RoleName}" Width="150"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Update" Margin="10" Width="100" Click="BtnUpdateAccount_Click" Background="#FF2980B9" Foreground="White" FontWeight="Bold"/>
+                <Button Content="Delete" Margin="10" Width="100" Height="30" Click="BtnDeleteAccount_Click" Background="#FF2980B9" Foreground="White" FontWeight="Bold"/>
+                <Button Content="Import Account from JSON" Margin="10" Height="30" Click="btnImport_Click" Background="#FF2980B9" Foreground="White" FontWeight="Bold"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
